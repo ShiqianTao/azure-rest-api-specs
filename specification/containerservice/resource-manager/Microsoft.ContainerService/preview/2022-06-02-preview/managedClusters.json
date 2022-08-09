@@ -3225,6 +3225,9 @@
         "osSKU": {
           "$ref": "#/definitions/OSSKU"
         },
+        "windowsProfile": {
+          "$ref": "#/definitions/AgentPoolWindowsProfile"
+        },
         "maxCount": {
           "type": "integer",
           "format": "int32",
@@ -5151,6 +5154,43 @@
         "modelAsString": true
       },
       "description": "Specifies the OS SKU used by the agent pool. If not specified, the default is Ubuntu if OSType=Linux or Windows2019 if OSType=Windows. And the default Windows OSSKU will be changed to Windows2022 after Windows2019 is deprecated."
+    },
+    "AgentPoolWindowsProfile": {
+      "type": "object",
+      "properties": {
+        "// option 1": "boolean variable",
+        "disableWindowsOutboundNAT": {
+          "type": "boolean",
+          "title": "Whether each node disables Windows OutboundNAT",
+          "description": "The default value is false. Windows nodes enable OutboundNAT by default. Allow disable Windows OutboundNAT only if the cluster outbound type is NAT Gateway and the Windows agent pool doesn't enable node public IP."
+        },
+
+        "// option 2": "enum variable (from Matthew Christopher - Are there other options/modes we will want to set outbound NAT to in the future for windows? Should we instead have this be: outboundNATMode: Disabled | Enabled? (Default enabled)?)",
+        "outboundNAT": {
+          "type": "string",
+          "default": "enable",
+          "enum": [
+            "enable",
+            "disable"
+          ],
+          "x-ms-enum": {
+            "name": "OutboundNAT",
+            "modelAsString": true,
+            "values": [
+              {
+                "value": "enable",
+                "description": "Enable Windows OutboundNAT."
+              },
+              {
+                "value": "disable",
+                "description": "Disable Windows OutboundNAT."
+              }
+            ]
+          },
+          "title": "Whether each node disables Windows OutboundNAT",
+          "description": "Windows nodes enable OutboundNAT by default. Allow disable Windows OutboundNAT only if the cluster outbound type is NAT Gateway and the Windows agent pool doesn't enable node public IP."
+        }
+      }
     },
     "ScaleSetPriority": {
       "type": "string",
