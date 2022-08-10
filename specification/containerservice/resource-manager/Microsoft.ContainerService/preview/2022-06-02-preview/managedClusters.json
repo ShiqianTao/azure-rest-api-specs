@@ -5160,10 +5160,10 @@
       "title": "The Windows node's specific properties",
       "properties": {
         "// option 1": "boolean variable",
-        "disableWindowsOutboundNAT": {
+        "disableOutboundNAT": {
           "type": "boolean",
-          "title": "Whether each node disables Windows OutboundNAT",
-          "description": "The default value is false. Windows nodes enable OutboundNAT by default. Allow disable Windows OutboundNAT only if the cluster outbound type is NAT Gateway and the Windows agent pool doesn't enable node public IP."
+          "title": "Whether each Windows node disables OutboundNAT",
+          "description": "The default value is false. Windows nodes enable OutboundNAT by default. Allow disable OutboundNAT only if the cluster outbound type is NAT Gateway and the Windows agent pool doesn't enable node public IP."
         },
 
         "// option 2": "enum variable (from Matthew Christopher - Are there other options/modes we will want to set outbound NAT to in the future for windows? Should we instead have this be: outboundNATMode: Disabled | Enabled? (Default enabled)?)",
