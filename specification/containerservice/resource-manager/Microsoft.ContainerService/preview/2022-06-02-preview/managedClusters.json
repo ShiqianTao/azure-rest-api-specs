@@ -5157,6 +5157,7 @@
     },
     "AgentPoolWindowsProperties": {
       "type": "object",
+      "title": "The Windows node's specific properties",
       "properties": {
         "// option 1": "boolean variable",
         "disableWindowsOutboundNAT": {
